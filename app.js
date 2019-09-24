@@ -3,6 +3,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const config = require('./config/index')
+const cors = require('cors')
 
 //connect mongoose
 const mongoose = require('mongoose');
@@ -22,6 +23,8 @@ const errorHandle = require('./middlewares/errorHandler')
 const passportJWT = require('./middlewares/passportJWT')
 
 const app = express();
+app.use(cors());
+
 
 app.use(logger('dev'));
 app.use(express.json());
